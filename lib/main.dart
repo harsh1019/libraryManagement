@@ -42,6 +42,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late LoginBloc _loginBloc;
+  @override
+  void initState() {
+    super.initState();
+    _loginBloc = BlocProvider.of<LoginBloc>(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -86,16 +93,24 @@ class _MyHomePageState extends State<MyHomePage> {
         const SizedBox(
           width: 30,
         ),
-        GestureDetector(
-          onTap: (() => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const Login(),
-              ))),
-          child: Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: const HoveredText(
-              title: "Login",
-            ),
-          ),
+        BlocBuilder(
+          bloc: _loginBloc,
+          builder: (context, state) {
+            if (state is LogedIn) {
+              return const SizedBox();
+            }
+            return GestureDetector(
+              onTap: (() => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const Login(),
+                  ))),
+              child: Container(
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                child: const HoveredText(
+                  title: "Login",
+                ),
+              ),
+            );
+          },
         ),
         const SizedBox(
           width: 30,

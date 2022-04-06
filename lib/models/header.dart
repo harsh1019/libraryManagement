@@ -34,36 +34,33 @@ class Header extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                // const SizedBox(
-                  
-                // ),
-                // SizedBox(
-                //   child: BlocBuilder<LoginBloc, AttemptState>(
-                //     bloc: BlocProvider.of<LoginBloc>(context),
-                //     builder: (context, snapshot) {
-                //       if (snapshot is LogedIn) {
-                //         return Container(
-                //           padding: const EdgeInsets.all(10),
-                //           decoration: BoxDecoration(
-                //             border: Border.all(color: Colors.black, width: 2),
-                //             shape: BoxShape.circle,
-                //           ),
-                //           child: const Icon(
-                //             Icons.person,
-                //             color: Colors.white,
-                //             size: 40,
-                //           ),
-                //         );
-                //       }
-                //       print("Loged Out");
-                      // return 
-                      buildWhenLogedOut()
-                    // },
-                  // ),
-                // )
+                const SizedBox(),
               ],
             ),
           ),
+          SizedBox(
+            child: BlocBuilder<LoginBloc, AttemptState>(
+              bloc: BlocProvider.of<LoginBloc>(context),
+              builder: (context, snapshot) {
+                if (snapshot is LogedIn) {
+                  return Container(
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 2),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: 40,
+                    ),
+                  );
+                }
+                return buildWhenLogedOut();
+              },
+            ),
+          )
         ],
       ),
     );

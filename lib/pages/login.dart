@@ -253,5 +253,8 @@ class _LoginState extends State<Login> {
 
   _addDataToDatabase(String admin, String password) async {
     _loginBloc.add(LoginRequest(admin: admin, password: password));
+    Future.delayed(const Duration(seconds: 2)).then((value) {
+      if (_loginBloc.state is LogedIn) Navigator.of(context).pop();
+    });
   }
 }

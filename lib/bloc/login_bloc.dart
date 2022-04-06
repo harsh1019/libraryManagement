@@ -7,10 +7,10 @@ import 'package:library_managment/classes/student.dart';
 class LoginBloc extends Bloc<RequestType, AttemptState> {
   late Student _student;
   LoginBloc(AttemptState initialState) : super(initialState) {
-    on<LoginRequest>(attemptLogin);
-    on<LogoutRequest>(attemptLogout);
+    on<LoginRequest>(_attemptLogin);
+    on<LogoutRequest>(_attemptLogout);
   }
-  attemptLogin(LoginRequest event, emit) async {
+  _attemptLogin(LoginRequest event, emit) async {
     CollectionReference collectionReference =
         FirebaseFirestore.instance.collection("users");
     final snapshot =
@@ -33,7 +33,7 @@ class LoginBloc extends Bloc<RequestType, AttemptState> {
     }
   }
 
-  attemptLogout(LogoutRequest event, emit) {
+  _attemptLogout(LogoutRequest event, emit) {
     emit(LogedOut());
   }
 

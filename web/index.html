@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="library_managment">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>library_managment</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAJls5ciA9hnYppV8JJdrHW8pQP-7Ju4WM",
+      authDomain: "librarymanagment-9bc7e.firebaseapp.com",
+      databaseURL: "https://librarymanagment-9bc7e-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "librarymanagment-9bc7e",
+      storageBucket: "librarymanagment-9bc7e.appspot.com",
+      messagingSenderId: "734957952804",
+      appId: "1:734957952804:web:e8525e2d3d9e5258a5ddb1"
+    };
+
+    firebase.initializeApp(firebaseConfig);     
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+
+</body>
+
+</html>

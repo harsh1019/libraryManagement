@@ -1,4 +1,4 @@
-# library_managment
+# library_management
 
 A new Flutter project.
 
